@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container" th:object="${city}">
+    <div class="row">
+        <div class="col-lg-10">
+            <h2 th:text="${city.name}"></h2>
+        </div>
+        <div class="col-lg-2">
+            <button class="btn btn-secondary"><a href="/city" style="color: white">Cities list</a></button>
+        </div>
+    </div>
+    <br><br>
+    <div class="">
+        <p th:text="*{'Name: '+name}"></p>
+        <p th:text="*{'Country: '+country.name}"></p>
+        <p th:text="*{'Area: '+area}"></p>
+        <p th:text="*{'Population: '+population}"></p>
+        <p th:text="*{'PopulationGDP: '+gdp}"></p>
+        <p>Description:</p>
+        <p th:text="*{description}"></p>
+    </div>
+    <div class="row">
+        <div class="col-lg-10"></div>
+        <div class="col-lg-1">
+            <button class="btn btn-success"><a th:href="@{'/city/update/'+${city.id}}" style="color:white;">Update</a>
+            </button>
+        </div>
+        <div class="col-lg-1">
+            <button class="btn btn-danger"><a th:href="@{'/city/remove/'+${city.id}}" style="color:white;">Remove</a>
+            </button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        #for-message {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 800px;
+            height: 200px;
+            background-color: cornflowerblue;
+        }
+
+        th, td {
+            width: 243px;
+            line-height: 30px;
+        }
+
+        tr {
+            border-bottom: 1px solid grey;
+        }
+
+        tr:hover {
+            background-color: lightgrey;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-9">
+            <h2>Cities list</h2>
+        </div>
+        <div class="col-lg-3">
+            <button class="btn btn-outline-success"><a href="/city/create">Create City</a></button>
+        </div>
+    </div>
+    <table class="row">
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Country</th>
+            <th>Country</th>
+        </tr>
+        <tr th:each="city:${cities}">
+            <td th:text="${city.id}"></td>
+            <td><a th:href="@{'/city/detail/'+${city.id}}" th:text="${city.name}"></a></td>
+            <td th:text="${city.country.name}"></td>
+            <td>
+                <button class="btn btn-success"><a th:href="@{'/city/update/'+${city.id}}"
+                                                   style="color: white">Update</a></button>
+                |
+                <button class="btn btn-danger"><a th:href="@{'/city/remove/'+${city.id}}"
+                                                  style="color: white;">Delete</a></button>
+            </td>
+        </tr>
+    </table>
+    <h3 th:if="${message!=null}" th:text="${message}" style="color: darkred;"></h3>
+</div>
+</body>
+</html>
