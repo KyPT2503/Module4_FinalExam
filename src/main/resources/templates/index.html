@@ -30,6 +30,15 @@
         tr:hover {
             background-color: lightgrey;
         }
+
+        #for-create-new a:hover {
+            color: white;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
@@ -39,7 +48,9 @@
             <h2>Cities list</h2>
         </div>
         <div class="col-lg-3">
-            <button class="btn btn-outline-success"><a href="/city/create">Create City</a></button>
+            <button id="for-create-new" class="btn btn-outline-success"><a href="/city/create"
+                                                                           style="text-decoration: none">Create City</a>
+            </button>
         </div>
     </div>
     <table class="row">
